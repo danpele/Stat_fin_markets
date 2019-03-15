@@ -54,8 +54,18 @@ rename Robor_3m=Forecast;
 data forecast;merge date(in=a) forecast(in=b);
 by year;
 if a and b;
+run;
 
 proc sgplot data=forecast;
 series x=data y=Robor_3m;
 series x=data y=Forecast;
+run;
+
+*Forecast performance assesment;
+data forecast;set forecast;
+error=Forecast-Robor_3m;
+run;
+*Root Mean Squared Error;
+proc means data=forecast mean std;
+var error;
 run;
