@@ -28,9 +28,7 @@
 goptions reset  =  all;
 proc datasets lib  =  work nolist kill;
 run;
-proc greplay nofs igout = work.gseg;
-  delete _all_;
-run;
+
 
 
 * The macro %fbm generates one dimensional fractional Brownian motion 'W' on t in [0,1] 
@@ -131,13 +129,6 @@ quit;
 %fbm(H = 0.8, n = 1000); *FBM with H = 0.8;
 
  
-* Overlay the two graphs;
 
-goptions device = png display xpixels = 600 ypixels = 500;
 
-proc greplay igout = gseg tc = sashelp.templt nofs;
-template = v2;
-treplay 1:gplot 2:gplot1;
-run;
-quit;
 
