@@ -119,8 +119,8 @@ quit;
 symbol i = line interpol = join c = blue w = 1.5;
 goptions device = png nodisplay xpixels = 300 ypixels = 200;
 
-proc gplot data = w;
-plot wt*t;
+proc sgplot data = w;
+series x=t y=wt;
 run;
 quit;
 %mend;
