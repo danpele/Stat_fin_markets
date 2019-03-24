@@ -1,0 +1,16 @@
+Name of QuantLet : Day_of_the_week_anlomaly
+
+Published in : Stat_fin_markets
+
+Description : 'Test the existence of the day of the week effect in the stock market.'
+Keywords : EMH, anomaly, weekday effect
+
+Author: Daniel Traian Pele
+
+Submitted : Sun, 24 March 2019
+
+Dataset: 'djia.csv'
+
+Example: 'Day of the week anomaly for the DJIA daily returns.'
+
+

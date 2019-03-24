@@ -1,8 +1,7 @@
-proc import datafile="/folders/myfolders/carte/djia.csv" dbms=csv
+﻿proc import datafile="/folders/myfolders/carte/djia.csv" dbms=csv
 out=date replace;
 run;
 
-*Calculăm randamentele în forma logaritmică;
 
 proc sort data=date;by date;
 data date;set date;
