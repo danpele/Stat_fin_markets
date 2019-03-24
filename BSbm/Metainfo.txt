@@ -1,9 +1,8 @@
 
-Example : 
-- Please download and extract the 5 rar volumes in order to get the datafile 
 Name of QuantLet : SFEbsbm
 
 Published in : Stat_fin_markets
+
 Description : 'SFEbsbm plots BS price as a function of a Brownian Motion S_t.'
 
 Keywords : 
