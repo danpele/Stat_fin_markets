@@ -1,8 +1,10 @@
+
+Example : 
+- Please download and extract the 5 rar volumes in order to get the datafile 
 Name of QuantLet : SFEbsbm
 
-Published in : SFE3
-
-Description : SFEbsbm plots BS price as a function of a Brownian Motion S_t.
+Published in : Stat_fin_markets
+Description : 'SFEbsbm plots BS price as a function of a Brownian Motion S_t.'
 
 Keywords : 
 - Black Scholes
@@ -24,4 +26,4 @@ Output:   'Plot of the Call Black-Scholes price as a function of a
                Brownian Motion S_t.'
 
 Example:      'The plot is generated for the following parameter values:
-             S0=100, K=110, r=0.05, si=0.3, tau=0.02'
+             S0=100, K=110, r=0.05, si=0.3, tau=0.02.'
