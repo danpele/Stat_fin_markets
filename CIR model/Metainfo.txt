@@ -1,8 +1,8 @@
-Name of QuantLet : SFEbsprices
+Name of QuantLet : CIR_model
 
-Published in : SFE3
+Published in : Stat_fin_markets
 
-Description : 'SFEbsbm plots BS price as a function of a Brownian Motion S_t.'
+Description : 'CIR_model estimates the parameters of the Cox-Ingersoll-Rolss model.'
 
 Keywords : Black Scholes, call, option, put, volatility, process, maturity, strike
 
