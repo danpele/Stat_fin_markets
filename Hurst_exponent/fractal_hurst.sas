@@ -112,10 +112,12 @@ data hurst;set hurst;
 rename col1=x;
 rename col2=y;
 run;
-%mend;
-%fractal_hurst(data=date,var=logreturn);
+
 
 proc reg data=hurst plots=none;
 model y=x/ ss1 ss2 stb clb covb corrb;
 run;
+
+%mend;
+%fractal_hurst(data=date,var=logreturn);
 
