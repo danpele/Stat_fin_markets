@@ -2,9 +2,9 @@ Name of QuantLet : SFM_Backtesting_VaR
 
 Published in : Stat_fin_markets
 
-Description : 'SFM_Backtesting_VaR applies the Cristophersen test and the Dieblo-Mariano test to compare the performance of Value at Risk Forecasts.'
+Description : 'SFM_Backtesting_VaR applies the Cristoffersen test and the Dieblo-Mariano test to compare the performance of Value at Risk Forecasts.'
 
-Keywords : Value at Risk, VaR, Backtesting, Cristophersen, Dieblo-Mariano
+Keywords : Value at Risk, VaR, Backtesting, Cristoffersen, Dieblo-Mariano
 
 Author: Daniel Traian Pele
 
@@ -17,7 +17,7 @@ Output:   'Backtesting tests.'
 Dataset: 'VAR.csv'
 
 Example: 'Compare the VaR forecasts performance of the following models: Empirical VaR 1%, Normal GARCH (1,1) 1%, Student GARCH (1,1) 1%.
-	%Cristophersen(dataset=, v=,p=); dataset - the dataset, v=the estimated var, p=the significance level.
+	%Cristoffersen(dataset=, v=,p=); dataset - the dataset, v=the estimated var, p=the significance level.
 	%Christoffersen (v=var_garch_t_01, p=0.01);
         %Diebold_Mariano (v1=, v2=, p=); v1- VaR first model, v2-VaR second model, p=the significance level.
 	%Diebold_Mariano (v1=var_empiric_01, v2=var_garch_t_01, p=0.01).'

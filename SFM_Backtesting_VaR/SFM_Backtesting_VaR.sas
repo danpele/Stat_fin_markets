@@ -1,9 +1,19 @@
 
+option nonotes;
+* Reset the working evironment;
+goptions reset = all;
+proc datasets lib = work nolist kill;
+run;
+
+proc import datafile="/home/danpele/Stat_fin_markets/VAR.csv" dbms=csv
+		out=var replace;
+run;
 
 
-%macro backtest(dataset=, var=,p=);
+
+%macro Christoffersen(dataset=, v=,p=);
 data test;set &dataset;
-dv=abs(&var);
+dv=abs(&v);
 
 if logreturn<-dv then it=1; else it=0;
 run;
@@ -103,16 +113,16 @@ title;
 
 
 
-%backtest (v=var_empiric_01, p=0.01);
-%backtest (v=var_garch_t_01, p=0.01);
+%Christoffersen(dataset=var, v=var_empiric_01, p=0.01);
+%Christoffersen(dataset=var, v=var_garch_t_01, p=0.01);
 
 
 *The Diebold-Mariano test for VaR forecast comparisons (Diebold and Mariano)
 Diebold, F.X. Mariano, R.S. Comparing predictive accuracy. J. Bus. Econ Stat. 1995, 13, 253–263.;
 
 
-%macro distance(v1=,v2=,p=);
-data test;set var;
+%macro Diebold_Mariano(dataset=,v1=,v2=,p=);
+data test;set &dataset;
 dv1=abs(&v1);
 
 if logreturn<-dv1 then i1=1; 
@@ -160,4 +170,4 @@ title;
 
 
 
-%distance (v1=var_empiric_01, v2=var_garch_t_01, p=0.01);
+%Diebold_Mariano(dataset=var, v1=var_empiric_01, v2=var_garch_t_01, p=0.01);
