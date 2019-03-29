@@ -1,0 +1,17 @@
+Name of QuantLet : SFM_Pareto_tail
+
+Published in : Stat_fin_markets
+
+Description : 'Estimates the parameters of Pareto-like distribution for the left
+		tail of log-returns.'
+Keywords : Pareto, tail, log-return
+
+Author: Daniel Traian Pele
+
+Submitted : Fri, 22 March 2019
+
+Output:   'Parameters of the estimated Pareto distribution.'
+
+Dataset: 'djia.csv'
+
+

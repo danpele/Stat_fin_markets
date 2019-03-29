@@ -1,0 +1,16 @@
+Name of QuantLet : SFM_LogNormal
+
+Published in : Stat_fin_markets
+
+Description : 'Plots the probability density function for Normal and LogNormal distribution.'
+
+Keywords : normal, lognormal, density, simulation
+
+Author: Daniel Traian Pele
+
+Submitted : Fri, 22 March 2019
+
+Output:   'Plots comparing normal and lognormal densities.'
+
+
+

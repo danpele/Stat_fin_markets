@@ -1,0 +1,19 @@
+Name of QuantLet : SFM_FBMplot
+
+Published in : Stat_fin_markets
+
+Description : 'SFM_FBMplot simulates a fractional brownian motion with Hurst exponent H and n onbservations.'
+
+Keywords : fractional brownian motion, simulation, stochastic,process, Hurst exponent
+
+Author: Daniel Traian Pele
+
+Submitted : Fri, 22 March 2019
+
+Input: H, n
+
+Output:   Fractional Brownian Motion plot
+
+Example: %fbm (H=0.8, n=1000)
+
+

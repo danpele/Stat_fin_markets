@@ -1,0 +1,17 @@
+Name of QuantLet : SFM_GEV_distribution
+
+Published in : Stat_fin_markets
+
+Description : 'Simulates the following GEV Distributions: Weibull, Frechet, Gumbel.'
+
+Keywords : Weibull, Frechet, Gumbel, GEV, simulation
+
+Author: Daniel Traian Pele
+
+Submitted : Fri, 22 March 2019
+
+Output:   'Probability density function of the GEV distributions'
+
+
+
+

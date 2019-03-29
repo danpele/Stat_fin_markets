@@ -1,0 +1,22 @@
+Name of QuantLet : SFM_Hurst
+
+Published in : Stat_fin_markets
+
+Description : 'SFM_Hurst estimates the Hurst exponent of a fractional Brownian motion using R/S analysis.'
+
+Keywords : 'Hurst, fractal, brownian motion, R/S analysis'
+
+Author: Daniel Traian Pele
+
+Submitted : Fri, 22 March 2019
+
+Input: 'data- the dataset, var - the variable'
+
+Output:   'The Hurst exponent and the 95% confidence limit.'
+
+Dataset: 'bet.csv'
+
+Example: 'Hurst exponent for the BET index.'
+
+Usage: '%fractal_hurst(data=date,var=logreturn);'
+

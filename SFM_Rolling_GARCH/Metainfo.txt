@@ -1,0 +1,17 @@
+Name of QuantLet : SFM_Rolling_GARCH
+
+Published in : Stat_fin_markets
+
+Description : 'SFM_Rolling GARCH estimates GARCH models for Bitcoin using a rolling window approach and estimates the Value at Risk.'
+
+Keywords : GARCH, Value at Risk, VaR, Bitcoin, BTC
+
+Author: Daniel Traian Pele
+
+Submitted : Thuesday, 26 March 2019
+
+Output:   'Volatility forecasts using a GARCH(1,1) model with Student residuals.'
+
+Dataset: 'BTC_data.xlsx'
+
+

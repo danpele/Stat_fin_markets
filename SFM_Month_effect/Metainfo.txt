@@ -1,0 +1,15 @@
+Name of QuantLet : SFM_Month_Effect
+
+Published in : Stat_fin_markets
+
+Description : 'Tests the callendar effect on the stock market.'
+Keywords : Month Effect, EMH, anomaly
+
+Author: Denisa Mihalache
+
+Submitted : Wed, 20 March 2019
+
+Output:   'ANOVA and Regression model for the Calendar Effect on DJIA.'
+Dataset: 'djia.csv'
+
+

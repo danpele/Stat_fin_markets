@@ -1,0 +1,28 @@
+Name of QuantLet : SFM_vega
+
+Published in : Stat_fin_markets
+
+Description : SFM_vega plots the vega of a call option.
+
+Keywords : Black Scholes, call, financial, greeks, option, vega
+
+Author: Daniel Traian Pele
+
+Submitted : Fri, 22 March 2019
+
+Input:  'S_min - Lower Bound of Asset Price S
+              S_max - Upper Bound of Asset Price S
+              tau_min - Lower Bound of Time to Maturity tau
+              tau_max - Upper Bound of Time to Maturity tau'
+
+Output:       plot of the vega of a call option
+
+Example:      User inputs [lower, upper] bound of Asset price S like
+              [50,150], [lower, upper] bound of time to maturity tau 
+             like [0.01, 1], then plot of the vega of a call option 
+             is given.
+
+Output:   'Parameters of the CIR model and forecasted values of the ROBOR_3m.'
+
+
+

@@ -1,0 +1,44 @@
+Name of QuantLet : SFM_BSprices
+
+Published in : Stat_fin_markets
+
+Description : 'SFM_BSprices plots BS price as a function of a Brownian Motion S_t.'
+
+Keywords : Black Scholes, call, option, put, volatility, process, maturity, strike
+
+Author: Daniel Traian Pele
+
+Submitted : Fri, 22 March 2019
+
+
+Output:   'Plot of the Call Black-Scholes price as a function of a
+               Brownian Motion S_t.'
+
+Example:      'The plot is generated for the following parameter values:
+S0=100, K=110, r=0.05, si=0.3, tau=0.02.'
+
+Keywords : 
+- Black Scholes
+- brownian motion
+- call
+- put
+- option
+
+Author: Daniel Traian Pele
+
+Submitted : Fri, 22 March 2019
+Input:       'S 		=	 the stock price;
+				K 		=	 the strike price;
+				r 		=	 the risk free interest rate;
+				tau 	= 	 the time to maturity (blue line);
+				tauu	= 	 the time to maturity (red dotted line);
+				sig 	= 	 the volatility of the first plot;
+				sigg 	= 	 the volatility of the second plot.'
+
+Output:   ' Plot of the Call Black-Scholes price as a function of S, K, r, tau, sigma.  '
+
+Example:      '    The plot is generated for the following parameter values:
+S=100, K=100, r=0.1, with the cases tau=0.6 and 
+tauu=0.003 respectively, and sig=0.15 and sigg=0.3 
+respectively.'
+

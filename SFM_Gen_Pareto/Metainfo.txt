@@ -1,0 +1,17 @@
+Name of QuantLet : SFM_Gen_Pareto
+
+Published in : Stat_fin_markets
+
+Description : 'SFM_Gen_Pareto simulates Generalized Pareto Distributions: Pareto, Exponential, Pareto II.'
+
+Keywords : Pareto, Exponential, Pareto II
+
+Author: Daniel Traian Pele
+
+Submitted : Fri, 22 March 2019
+
+Output:   'Probability density functions of the selected distributions.'
+
+
+
+
