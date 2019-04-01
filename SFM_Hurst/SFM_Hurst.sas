@@ -119,8 +119,7 @@ run;
 
 
 %mend;
-%fractal_hurst(data=date,var=logreturn);
 
-%mend;
+
 %fractal_hurst(data=date,var=logreturn);
 
