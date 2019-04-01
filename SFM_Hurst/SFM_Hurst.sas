@@ -109,21 +109,18 @@ rename col1=x;
 rename col2=y;
 run;
 
-<<<<<<< HEAD:SFM_Hurst/SFM_Hurst.sas
 *The slope of this regression model is the Hurst exponent;
-=======
->>>>>>> 182e6c308c8f2495bc8a935b90fcfeb21934823e:Hurst_exponent/fractal_hurst.sas
+
+
 
 proc reg data=hurst plots=none;
 model y=x/ ss1 ss2 stb clb covb corrb;
 run;
 
-<<<<<<< HEAD:SFM_Hurst/SFM_Hurst.sas
 
 %mend;
 %fractal_hurst(data=date,var=logreturn);
-=======
+
 %mend;
 %fractal_hurst(data=date,var=logreturn);
 
->>>>>>> 182e6c308c8f2495bc8a935b90fcfeb21934823e:Hurst_exponent/fractal_hurst.sas
