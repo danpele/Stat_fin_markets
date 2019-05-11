@@ -15,5 +15,5 @@ Author : Daniel Traian Pele
 
 Submitted : Sat, 11 May 2019 by Daniel Traian Pele
 
-Datafiles : 'crix.xlsx'
+Datafiles : 'new_data_paper_crypto.xlsx'
 
