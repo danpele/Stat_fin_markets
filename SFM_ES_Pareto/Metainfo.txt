@@ -1,0 +1,19 @@
+Name of QuantLet : SFM_ES_Pareto
+
+Published in : Stat_fin_markets
+
+Description : 'This quantlet estimates Tail Entropy Expected Shortfall for a Pareto Distribution.'
+
+Keywords : 
+ - Pareto
+ - entropy
+ - Expected Shortfall
+ - Tail Entropy
+
+ 
+Author : Daniel Traian Pele
+
+
+Submitted : Sat, 11 May 2019 by Daniel Traian Pele
+
+
