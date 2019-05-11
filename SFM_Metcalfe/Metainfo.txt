@@ -1,0 +1,19 @@
+Name of QuantLet : SFM_Metcalfe
+
+Published in : Stat_fin_markets
+
+Description : 'This quantlet estimates the Metcalfes's law for Bitcoin.'
+
+Keywords : 
+ - cryptocurrency
+ - Metcalfe
+ - Bitcoin
+
+ 
+Author : Daniel Traian Pele
+
+
+Submitted : Sat, 11 May 2019 by Daniel Traian Pele
+
+Datafiles : 'crix.xlsx'
+
