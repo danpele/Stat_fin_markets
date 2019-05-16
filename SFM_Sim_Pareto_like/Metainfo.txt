@@ -1,0 +1,14 @@
+Name of QuantLet : SFM_Sim_Pareto_like
+
+Published in : Stat_fin_markets
+
+Description : 'SFM_Sim_pareto simulates Y=-X ~ Pareto distribution.'
+
+Keywords : Pareto, density, simulation
+
+Author: Daniel Traian Pele
+
+Submitted : Thu, 16 May 2019
+
+
+
