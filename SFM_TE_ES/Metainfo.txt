@@ -1,0 +1,19 @@
+Name of QuantLet : SFM_TE_ES
+
+Published in : Stat_fin_markets
+
+Description : 'This quantlet estimates Tail Entropy Expected Shortfall.'
+
+Keywords : 
+
+ - entropy
+ - Expected Shortfall
+ - Tail Entropy
+
+ 
+Author : Daniel Traian Pele
+
+
+Submitted : Mon, 26 Aug 2019 by Daniel Traian Pele
+
+
