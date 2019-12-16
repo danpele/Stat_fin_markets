@@ -2,7 +2,7 @@ Name of QuantLet : SFM_Metcalfe
 
 Published in : Stat_fin_markets
 
-Description : 'This quantlet estimates the Metcalfes's law for Bitcoin.'
+Description : "This quantlet estimates the Metcalfes's law for Bitcoin."
 
 Keywords : 
  - cryptocurrency
