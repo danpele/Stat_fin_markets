@@ -115,6 +115,23 @@ goptions device = png nodisplay xpixels = 300 ypixels = 200;
 
 proc sgplot data = w;
 series x=t y=wt;
+
+
+data w;set w;
+rt=wt-lag(wt);
+run;
+
+ title 'Returns of Fractional Brownian Motion with '&n' observations and H'=&H;
+proc sgplot data = w;
+series x=t y=rt;
+run;
+quit;
+
+proc arima data=w;
+identify var=rt;
+run;
+
+
 run;
 quit;
 %mend;
