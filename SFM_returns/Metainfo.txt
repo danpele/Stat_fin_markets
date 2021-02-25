@@ -1,0 +1,15 @@
+Name of QuantLet : SFM_Returns
+
+Published in : Stat_fin_markets
+
+Description : 'Simple returns vs log-returns.'
+Keywords : log-returns, returns
+
+Author: Daniel Traian Pele
+
+Submitted : Thu, 25 Feb 2021
+
+Output:   'Histogram of simple returns and log-returns.'
+
+
+
