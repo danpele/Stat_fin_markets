@@ -1,0 +1,15 @@
+Name of QuantLet : SFM_SP500
+
+Published in : Stat_fin_markets
+
+Description : 'SP500 components data.'
+Keywords : SP500
+
+Author: Daniel Traian Pele
+
+Submitted : Thu, 25 Feb 2021
+
+Output:   'SP500 components data.'
+
+
+
