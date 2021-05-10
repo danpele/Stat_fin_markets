@@ -188,16 +188,16 @@ proc iml;
 
 	data garch_t;
 		set garch_t;
-		var_garch_t_05=(quantile('T', 0.05, df)*sqrt(variance_garch_t)-mu);
-		var_garch_t_01=(quantile('T', 0.01, df)*sqrt(variance_garch_t)-mu);
-		var_garch_t_025=(quantile('T', 0.025, df)*sqrt(variance_garch_t)-mu);
+		var_garch_t_05=(quantile('T', 0.05, df)*sqrt(variance_garch_t)+mu);
+		var_garch_t_01=(quantile('T', 0.01, df)*sqrt(variance_garch_t)+mu);
+		var_garch_t_025=(quantile('T', 0.025, df)*sqrt(variance_garch_t)+mu);
 	run;
 
 	data garch_n;
 		set garch_n;
-		var_garch_n_05=(quantile('NORMAL', 0.05)*sqrt(variance_garch_n)-mu);
-		var_garch_n_01=(quantile('NORMAL', 0.01)*sqrt(variance_garch_n)-mu);
-		var_garch_n_025=(quantile('NORMAL', 0.025)*sqrt(variance_garch_n)-mu);
+		var_garch_n_05=(quantile('NORMAL', 0.05)*sqrt(variance_garch_n)+mu);
+		var_garch_n_01=(quantile('NORMAL', 0.01)*sqrt(variance_garch_n)+mu);
+		var_garch_n_025=(quantile('NORMAL', 0.025)*sqrt(variance_garch_n)+mu);
 	run;
 
 	data garch_t;merge garch_t garch_n;
