@@ -1,0 +1,14 @@
+Name of QuantLet : SFM_VaR
+
+Published in : Stat_fin_markets
+
+Description : 'SFM_VaR estimates Value-at-Risk using various methods.'
+
+Keywords : Value at Risk, VaR, portfolio, risk
+
+Author: Daniel Traian Pele
+
+Submitted : Tuesday, 7 December 2021
+
+
+

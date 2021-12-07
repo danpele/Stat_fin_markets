@@ -1,3 +1,4 @@
+#install.packages("devtools")
 library(devtools)
 devtools::install_github(repo="stuartgordonreid/emh")
 
@@ -30,7 +31,7 @@ head(AAPL)
 
 
 plot(AAPL[, "AAPL.Close"], main = "AAPL")
-
+library(emh)
 
 results <- emh::is_random(AAPL)
 emh::plot_results(results)
