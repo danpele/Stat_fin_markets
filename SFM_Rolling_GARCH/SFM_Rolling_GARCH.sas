@@ -16,16 +16,17 @@ Output:   'Volatility forecasts using a GARCH(1,1) model with Student residuals.
 Dataset: 'BTC_data.xlsx'
 ***********************************************************************;
 
-option nonotes;
 * Reset the working evironment;
-goptions reset = all;
-proc datasets lib = work nolist kill;
-run;
+goptions reset=all;
 
-proc import datafile="/home/danpele/Stat_fin_markets/BTC_data.xlsx" dbms=xlsx 
+option nonotes;
+
+proc datasets lib=work nolist kill;
+	run;
+
+proc import datafile="/home/danpele/S&P500.xlsx" dbms=xlsx
 		out=date replace;
 run;
-
 proc sort data=date;
 	by date;
 run;
@@ -33,19 +34,15 @@ run;
 data date;
 	set date;
 	year=year(date);
-	logreturn=log(close)-log(lag(close));
+	logreturn=(log(close)-log(lag(close)));
 
 	if logreturn=. then
 		delete;
 run;
 
-data date;
-	set date;
+data date;set date;
+if year>=2006 and year<=2010;
 
-	if year>=2017;
-	y=logreturn;
-	t=_n_;
-run;
 
 proc sgplot data=date;
 	series x=date y=close;
@@ -55,66 +52,48 @@ proc sgplot data=date;
 	series x=date y=logreturn;
 run;
 
-data date;set date;
-y=logreturn**2;
-run;
+* Estimate GARCH(1,1) with Normal distributed residuals;
 
-proc arima data=date;
-identify var=y;
-run;
-
-
-
-/* Estimate GARCH(1,1) with t-distributed residuals with AUTOREG*/
 proc autoreg data=date;
-	ods output ParameterEstimates=Parms_t;
-	model logreturn=/  garch=(q=1, p=1) dist=t maxiter=1000;
-	output out=garch_t cev=variance_garch_t;
+	model logreturn=/ garch=(q=1, p=1) maxiter=1000;
+	output out=garch_normal cev=variance_garch_n;
 run;
 
+proc sgplot data=garch_normal;
+	series x=date y=variance_garch_n;
+run;
 
+*Estimate GARCH(1,1) with t-distributed residuals;
 
+proc autoreg data=date;
+	model logreturn=/  garch=(q=1,p=1) dist=t  maxiter=1000 ;
+	output out=garch_student cev=variance_garch_t;
+run;
 
-title 'Conditional variance GARCH(1,1) - t distribution';
-
-proc sgplot data=garch_t;
+proc sgplot data=garch_student;
 	series x=date y=variance_garch_t;
 run;
 
-title;
 
-data date;set date;
-ar_1=lag(logreturn);
-
-
-/* Estimate GARCH(1,1) with Normal-distributed residuals with AUTOREG*/
-proc autoreg data=date;
-	ods output ParameterEstimates=Parms_n;
-	model logreturn= /  garch=(q=2, p=2) maxiter=1000;
-	output out=garch_n cev=variance_garch_n;
-run;
 
 %let winsize=250;
+
 proc iml;
 	use date;
 	read all var {logreturn} into x;
 	close date;
 	mrows=nrow(x)-&winsize+1;
 	inc=&winsize-1;
-	var_empiric=j(mrows, 3, 0);
+	var_empiric=j(mrows, 1, 0);
 
 	do r=1 to mrows;
 		w=x[r:r+inc];
-		p={0.01, 0.025, 0.05};
+		p={0.01};
 		call qntl(q, w, p);
 		var_empiric[r, 1]=q[1];
-		var_empiric[r, 2]=q[2];
-		var_empiric[r, 3]=q[3];
-
 		create temp var {"w"};
 		append;
 		close temp;
-		
 		submit;
 
 	data temp;
@@ -128,116 +107,145 @@ proc iml;
 			end;
 	run;
 
-	proc autoreg data=temp plots=none noprint ;
-		ods output ParameterEstimates=Parms_t;
-		model w=/ garch=(q=1, p=1) dist=t MAXITER = 1000;
-		output out=garch_t cev=variance_garch_t;
+	proc autoreg data=temp plots=none noprint outest=Parms_t;
+	
+model w=/ garch=(q=1, p=1) dist=t MAXITER=1000 initial=(0.000606	0.00001	0.1009	0.8942	0.1433);
+		output out=garch_t cev=variance_garch_t ;
+	
 	run;
+
+	proc autoreg data=temp plots=none noprint outest=Parms_n;
 	
-	
-	proc autoreg data=temp plots=none noprint ;
-		ods output ParameterEstimates=Parms_n;
-		model w=/ garch=(q=1, p=1)  MAXITER = 1000;
+		model w=/ garch=(q=1, p=1) MAXITER=1000;
 		output out=garch_n cev=variance_garch_n;
 	run;
-	
+
 	data garch_n;
 		set garch_n;
 
 		if _n_=&winsize+1;
 	run;
-	
-	
+
 	data garch_t;
 		set garch_t;
 
 		if _n_=&winsize+1;
 	run;
 
-	data df;
+	data df (keep=_TDFI_);
 		set parms_t;
-
-		if variable='TDFI';
 
 	data df(keep=df);
 		set df;
-		df=1/estimate;
+		df=1/_TDFI_;
 	run;
 
-	data mu(keep=mu);
-		set parms_t;
 
-		if _n_=1;
-		rename estimate=mu;
+	proc means data=temp noprint;
+		output out=parms var(w)=variance_emp mean(w)=mu_emp;
 	run;
-
-	data mu_n(keep=mu);
-		set parms_n;
-
-		if _n_=1;
-		rename estimate=mu;
-	run;
-
 	data garch_n;
-		merge garch_n mu_n;
-	run;
-	
+			if _n_=1 then
+			set parms;
+			set garch_n;
 	data garch_t;
-		merge garch_t mu df;
-	run;
+			if _n_=1 then
+			set parms;
+			set garch_t;
+	data garch_t;
+			if _n_=1 then
+			set df;
+			set garch_t;
 
 	data garch_t;
 		set garch_t;
-		var_garch_t_05=(quantile('T', 0.05, df)*sqrt(variance_garch_t)+mu);
-		var_garch_t_01=(quantile('T', 0.01, df)*sqrt(variance_garch_t)+mu);
-		var_garch_t_025=(quantile('T', 0.025, df)*sqrt(variance_garch_t)+mu);
+		var_garch_t_01=(quantile('T', 0.01, df)*sqrt(variance_garch_t)+mu_emp);
 	run;
 
 	data garch_n;
 		set garch_n;
-		var_garch_n_05=(quantile('NORMAL', 0.05)*sqrt(variance_garch_n)+mu);
-		var_garch_n_01=(quantile('NORMAL', 0.01)*sqrt(variance_garch_n)+mu);
-		var_garch_n_025=(quantile('NORMAL', 0.025)*sqrt(variance_garch_n)+mu);
+		var_garch_n_01=(quantile('NORMAL', 0.01)*sqrt(variance_garch_n)+mu_emp);
 	run;
 
-	data garch_t;merge garch_t garch_n;
+	data garch;
+		merge garch_t garch_n;
 	run;
-	
-		proc append base=var_garch data=garch_t force;
-		run;
-		
-		quit;
-		endsubmit;
-		end;
-		create var_empiric from var_empiric;
-		append from var_empiric;
-		quit;
-		
-		data var_empiric;
+
+
+	data garch;
+		if _n_=1 then
+			set parms;
+		set garch;
+
+	data garch;
+		set garch;
+		var_normal_01=(quantile('NORMAL', 0.01)*sqrt(variance_emp)+mu_emp);
+
+	proc append base=var_garch data=garch force;
+	run;
+
+	endsubmit;
+	end;
+	create var_empiric from var_empiric;
+	append from var_empiric;
+	quit;
+
+	data var_empiric;
 		set var_empiric;
 		rename col1=var_empiric_01;
-		rename col2=var_empiric_025;
-		rename col3=var_empiric_05;
 
 	data var;
 		merge var_garch var_empiric;
-		run;
-		
+	run;
+
+	data var;
+		set var;
+		t=&winsize+_n_;
+
+	data date (keep=date logreturn t);
+		set date;
+		t=_n_;
+
+	data var;
+		merge date (in=a) var(in=b);
+		by t;
+
+		if a and b;
+	run;
+
+	proc sgplot data=var;
+		series x=date y=logreturn/ lineattrs=(color=black THICKNESS=1.5);
+		series x=date y=var_empiric_01/ lineattrs=(color=red THICKNESS=2 
+			pattern=dash);
+		series x=date y=var_garch_t_01/ lineattrs=(color=green THICKNESS=2 
+			pattern=dot);
+		series x=date y=var_garch_n_01/ lineattrs=(color=blue THICKNESS=2 
+			pattern=solid);
+		series x=date y=var_normal_01/ lineattrs=(color=brown THICKNESS=2 
+			pattern=shortdash);
+	run;
+
+*Binomial test for VaR;
+
+%macro binomial (var=, alpha=);
 data var;set var;
-t=&winsize+_n_;
+if logreturn<-abs(&var) then it=1;
+else it=0;
 
-data date (keep=date logreturn t);set date;
-t=_n_;
-
-data var; merge date (in=a) var(in=b);
-by t;
-if a and b;
+proc means data=var noprint;
+output out=binom mean(it)=p n(it)=n sum(it)=s;
 run;
 
-
-proc sgplot data=var;
-series x=date y=logreturn/ lineattrs = (color = blue THICKNESS = 1.5);
-series x=date y=var_empiric_05/ lineattrs = (color = red THICKNESS = 1.5 pattern=dash);
-series x=date y=var_garch_t_05/ lineattrs = (color = green THICKNESS = 1.5 pattern=dash);
-series x=date y=var_garch_n_05/ lineattrs = (color = black THICKNESS = 1.5 pattern=dash);
+data binom (drop=_freq_ _type_ obs);set binom;
+z=(s-&alpha*n)/sqrt(n*&alpha*(1-&alpha));
+p_value=1-CDF('NORMAL',z);
 run;
+title &var;
+
+proc print data=binom;
+%mend;
+
+%binomial(var=var_normal_01,alpha=0.01);
+%binomial(var=var_empiric_01,alpha=0.01);
+%binomial(var=var_garch_n_01,alpha=0.01);
+%binomial(var=var_garch_t_01,alpha=0.01);
