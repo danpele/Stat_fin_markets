@@ -1,0 +1,14 @@
+Name of QuantLet : SFM_Rolling_VaR
+
+Published in : Stat_fin_markets
+
+Description : 'SFM_Rolling_VaR estimates Value-at-Risk using various methods and applies Christoffersen test (1998) and Diebold and Mariano Test.'
+
+Keywords : Value at Risk, VaR, portfolio, risk, backtesting, Christoffersen test, Diebold, Mariano
+
+Author: Daniel Traian Pele
+
+Submitted : Tuesday, 7 December 2021
+
+
+

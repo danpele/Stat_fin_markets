@@ -1,0 +1,14 @@
+Name of QuantLet : SFM_GPD_VaR
+
+Published in : Stat_fin_markets
+
+Description : 'SFM_GPD_VaR estimates VaR using Extreme Value Theory and Generalized Pareto Distribution.'
+
+Keywords : Value at Risk, VaR, Pareto, Extreme Value Theory
+
+Author: Daniel Traian Pele
+
+Submitted : Tuesday, 7 December 2021
+
+
+
