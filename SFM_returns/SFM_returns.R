@@ -1,4 +1,6 @@
 # Get quantmod
+
+rm(list = ls(all = TRUE))
 if (!require("quantmod")) {
   install.packages("quantmod")
   library(quantmod)
@@ -16,13 +18,14 @@ end <- as.Date("2020-10-01")
 # global environment, with the object being named after the loaded ticker
 # symbol. This feature may become deprecated in the future, but we exploit
 # it now.
-
-getSymbols("AAPL", src = "yahoo", from = start, to = end)
-
+library(tseries)
+ticker="AAPL"
+df<-get.hist.quote(instrument=ticker, start = start, end = end)
+df=as.data.frame(df)
 # Let's see the first few rows
-head(AAPL)
+head(df)
 
-plot(AAPL[, "AAPL.Close"], main = "AAPL")
+plot(df[, "Close"], main = ticker,type='l')
 # Get me my beloved pipe operator!
 if (!require("magrittr")) {
   install.packages("magrittr")
@@ -30,7 +33,7 @@ if (!require("magrittr")) {
 }
 
 library(magrittr)
-log_return= AAPL$AAPL.Close %>% log %>% diff
+log_return= df$Close %>% log %>% diff
 
 log_return<-log_return[!is.na(log_return)]
 head(log_return)
@@ -42,31 +45,31 @@ hist(log_return,col="blue")
 
 
 
-df<-as.data.frame(log_return)
-shapiro.test(df$AAPL.Close)
+ret<-as.data.frame(log_return)
+shapiro.test(ret$log_return)
 
 library("dplyr")
 library("ggpubr")
-ggdensity(df$AAPL.Close, 
+ggdensity(ret$log_return, 
           main = "Density plot",
           xlab = "Log return")
 
-summary(log_return)
+summary(ret$log_return)
 
-#install.packages("e1071")
+install.packages("e1071")
 library(e1071)
 
-skewness(log_return)
-kurtosis(log_return)
+skewness(ret$log_return)
+kurtosis(ret$log_return)
 
 
-mu=mean(log_return)
-std=sd(log_return)
+mu=mean(ret$log_return)
+std=sd(ret$log_return)
 
-Normal<-rnorm(length(log_return), mean = mu, sd = std)
+Normal<-rnorm(length(ret$log_return), mean = mu, sd = std)
 
 
-hgA <- hist(log_return,plot = FALSE) # Save first histogram data
+hgA <- hist(ret$log_return,plot = FALSE) # Save first histogram data
 hgB <- hist(Normal, plot = FALSE) # Save 2nd histogram data
 
 plot(hgA,c="blue") # Plot 1st histogram using a transparent color
