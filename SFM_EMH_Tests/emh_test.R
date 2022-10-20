@@ -1,4 +1,7 @@
 #install.packages("devtools")
+
+
+rm(list = ls(all = TRUE))
 library(devtools)
 devtools::install_github(repo="stuartgordonreid/emh")
 
@@ -8,8 +11,8 @@ if (!require("quantmod")) {
     library(quantmod)
 }
 
-start <- as.Date("2014-01-01")
-end <- as.Date("2016-10-01")
+start <- as.Date("2018-01-01")
+end <- as.Date("2019-12-31")
 
 # Let's get Apple stock data; Apple's ticker symbol is AAPL. We use the
 # quantmod function getSymbols, and pass a string as a first argument to
@@ -21,21 +24,30 @@ end <- as.Date("2016-10-01")
 # symbol. This feature may become deprecated in the future, but we exploit
 # it now.
 
-getSymbols("AAPL", src = "yahoo", from = start, to = end)
+symbol<- c("AAPL")
+start_date <- "2018-01-01"
+end_date <- "2019-12-31"
 
-# What is AAPL?
-class(AAPL)
 
+df<- getSymbols(stock_index, verbose = TRUE, src = "yahoo", 
+             from=start_date,to=end_date,auto.assign=FALSE)
+ 
+
+names(df) = gsub(pattern = symbol, replacement = "", x = names(df))
+
+names(df) <- gsub("\\.", "", names(df))
 # Let's see the first few rows
-head(AAPL)
+head(df)
 
 
-plot(AAPL[, "AAPL.Close"], main = "AAPL")
+plot(df$AAPL.Close, main = "Closing Price", type="l")
 library(emh)
 
-results <- emh::is_random(AAPL)
+results <- emh::is_random(df$Close)
 emh::plot_results(results)
 View(results)
+
+
 
 
 
