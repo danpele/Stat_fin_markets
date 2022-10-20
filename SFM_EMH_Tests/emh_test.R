@@ -34,7 +34,7 @@ names(df) <- gsub("\\.", "", names(df))
 head(df)
 
 
-plot(df$AAPL.Close, main = "Closing Price", type="l")
+plot(df$Close, main = "Closing Price", type="l")
 library(emh)
 
 results <- emh::is_random(df$Close)
