@@ -23,7 +23,7 @@ start_date <- "2018-01-01"
 end_date <- "2019-12-31"
 
 
-df<- getSymbols(stock_index, verbose = TRUE, src = "yahoo", 
+df<- getSymbols(symbol, verbose = TRUE, src = "yahoo", 
              from=start_date,to=end_date,auto.assign=FALSE)
  
 
