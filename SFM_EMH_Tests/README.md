@@ -2,6 +2,8 @@
 
 ## [<img src="https://github.com/QuantLet/Styleguide-and-FAQ/blob/master/pictures/qloqo.png" alt="Visit QuantNet">](http://quantlet.de/) **SFM_EMH_tests** [<img src="https://github.com/QuantLet/Styleguide-and-FAQ/blob/master/pictures/QN2.png" width="60" alt="Visit QuantNet 2.0">](http://quantlet.de/)
 
+#### All the SAS files should be in the same folder; you need to run first the EMH_Test.sas and the other programs will be called within this one. Also, you need to change the path for the csv file.
+
 ```yaml
 
 Name of QuantLet : SFM_EMH_tests
