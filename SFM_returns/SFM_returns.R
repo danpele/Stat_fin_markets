@@ -18,6 +18,11 @@ end <- as.Date("2020-10-01")
 # global environment, with the object being named after the loaded ticker
 # symbol. This feature may become deprecated in the future, but we exploit
 # it now.
+if (!require("tseries")) {
+  install.packages("tseries")
+  library(magrittr)
+}
+
 library(tseries)
 ticker="AAPL"
 df<-get.hist.quote(instrument=ticker, start = start, end = end)
@@ -37,7 +42,7 @@ log_return= df$Close %>% log %>% diff
 
 log_return<-log_return[!is.na(log_return)]
 head(log_return)
-plot(log_return)
+plot(log_return, type="l")
 
 
 
