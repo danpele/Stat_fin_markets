@@ -53,6 +53,7 @@ hist(log_return,col="blue")
 ret<-as.data.frame(log_return)
 shapiro.test(ret$log_return)
 
+# Kernel Density Estimation: https://en.wikipedia.org/wiki/Kernel_density_estimation
 library("dplyr")
 library("ggpubr")
 ggdensity(ret$log_return, 
