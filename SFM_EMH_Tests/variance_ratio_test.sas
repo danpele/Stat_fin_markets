@@ -156,26 +156,34 @@
 
 	proc print data=varrat (obs=&q);
 	run;
-
+	
+	data varrat;set varrat;
+	reference=1;
+	run;
+	
 	proc sgplot data=varrat;
 		series x=q y=VR/lineattrs=(color=red pattern=dash) name='Variance Ratio';
 		series x=q y=lower_homo/lineattrs=(color=blue pattern=dash) 
 			name='Confidence interval';
 		series x=q y=upper_homo /lineattrs=(color=blue pattern=dash);
+		series x=q y=reference/lineattrs=(color=green ) name='VR under RWH';
 		title ' Variance Ratio under Homoskedasticity';
 		label VR='Variance Ratio';
+		label reference='VR under RWH' ;
 		label q='q';
-		keylegend "Confidence interval" "Variance Ratio";
+		keylegend "Confidence interval" "Variance Ratio"  "VR under RWH";
 
 	proc sgplot data=varrat;
 		series x=q y=VR/lineattrs=(color=red pattern=dash) name='Variance Ratio';
 		series x=q y=lower_hetero/lineattrs=(color=blue pattern=dash) 
 			name='Confidence interval';
 		series x=q y=upper_hetero/lineattrs=(color=blue pattern=dash);
+		series x=q y=reference/lineattrs=(color=green ) name='VR under RWH';
 		title ' Variance Ratio under Heteroskedasticity';
 		label VR='Variance Ratio';
 		label q='q';
-		keylegend "Confidence interval" "Variance Ratio";
+		label reference='VR under RWH';
+		keylegend "Confidence interval" "Variance Ratio"  "VR under RWH";
 	run;
 
 	quit;
