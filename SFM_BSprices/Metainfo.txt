@@ -16,5 +16,3 @@ Output:   'Plot of the Call Black-Scholes price as a function of a
 
 Example:      'The plot is generated for the following parameter values:
 S0=100, K=110, r=0.05, si=0.3, tau=0.02.'
-
-
