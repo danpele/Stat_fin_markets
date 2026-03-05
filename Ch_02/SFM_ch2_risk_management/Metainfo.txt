@@ -1,0 +1,11 @@
+Name of QuantLet: 'SFM_ch2_risk_management'
+
+Published in: 'Statistics of Financial Markets (SFM)'
+
+Description: 'Risk measures and backtesting: VaR and Expected Shortfall under Normal, Student-t, Empirical distributions. Rolling 250-day backtest, Basel traffic light test, portfolio impact for $1M'
+
+Keywords: 'VaR, expected shortfall, backtesting, Basel traffic light, risk management, rolling window, Student-t'
+
+Author: 'Daniel Traian Pele'
+
+Submitted: 'Monday, 2 March 2026'

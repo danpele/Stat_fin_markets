@@ -1,0 +1,11 @@
+Name of QuantLet: 'SFM_ch2_distribution_comparison'
+
+Published in: 'Statistics of Financial Markets (SFM)'
+
+Description: 'Comprehensive distribution comparison: Normal, Student-t, GED, Stable fitted to S&P 500 returns. PDF overlay, 2x2 QQ panel, tail CDF comparison, AIC/BIC ranking'
+
+Keywords: 'distribution comparison, Normal, Student-t, GED, stable, QQ-plot, AIC, BIC, tail comparison'
+
+Author: 'Daniel Traian Pele'
+
+Submitted: 'Monday, 2 March 2026'

@@ -1,0 +1,11 @@
+Name of QuantLet: 'SFM_ch2_stylized_facts'
+
+Published in: 'Statistics of Financial Markets (SFM)'
+
+Description: 'Stylized facts of financial return distributions: fat tails, skewness, volatility clustering (ACF), gain/loss asymmetry, aggregational Gaussianity with S&P 500 data'
+
+Keywords: 'stylized facts, fat tails, skewness, volatility clustering, aggregational Gaussianity, kurtosis'
+
+Author: 'Daniel Traian Pele'
+
+Submitted: 'Monday, 2 March 2026'

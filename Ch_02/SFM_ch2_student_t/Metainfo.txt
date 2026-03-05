@@ -1,0 +1,11 @@
+Name of QuantLet: 'SFM_ch2_student_t'
+
+Published in: 'Statistics of Financial Markets (SFM)'
+
+Description: 'Student-t distribution fitting to S&P 500 returns. PDFs for various degrees of freedom, MLE estimation, AIC/BIC comparison with Normal, tail probability analysis'
+
+Keywords: 'Student-t distribution, MLE, degrees of freedom, AIC, BIC, tail probabilities, fat tails'
+
+Author: 'Daniel Traian Pele'
+
+Submitted: 'Monday, 2 March 2026'

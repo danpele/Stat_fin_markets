@@ -1,0 +1,11 @@
+Name of QuantLet: 'SFM_ch2_extreme_value'
+
+Published in: 'Statistics of Financial Markets (SFM)'
+
+Description: 'Extreme Value Theory for financial risk: GEV block maxima, GPD Peaks Over Threshold, mean excess function, return levels, EVT-based VaR and Expected Shortfall'
+
+Keywords: 'extreme value theory, GEV, GPD, block maxima, peaks over threshold, VaR, expected shortfall, tail risk'
+
+Author: 'Daniel Traian Pele'
+
+Submitted: 'Monday, 2 March 2026'

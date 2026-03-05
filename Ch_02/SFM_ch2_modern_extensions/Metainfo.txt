@@ -1,0 +1,11 @@
+Name of QuantLet: 'SFM_ch2_modern_extensions'
+
+Published in: 'Statistics of Financial Markets (SFM)'
+
+Description: 'Modern distribution extensions: GARCH(1,1)-t conditional volatility, Gaussian mixture model for regime detection, standardized residual analysis with S&P 500 data'
+
+Keywords: 'GARCH, Student-t innovations, Gaussian mixture, regime switching, conditional volatility, standardized residuals'
+
+Author: 'Daniel Traian Pele'
+
+Submitted: 'Monday, 2 March 2026'

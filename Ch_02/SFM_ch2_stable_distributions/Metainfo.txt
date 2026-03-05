@@ -1,0 +1,11 @@
+Name of QuantLet: 'SFM_ch2_stable_distributions'
+
+Published in: 'Statistics of Financial Markets (SFM)'
+
+Description: 'Stable distribution fitting and risk analysis. PDFs for various alpha values, S&P 500 stable fit, VaR comparison (stable/normal/empirical), tail survival function, cross-asset stability index'
+
+Keywords: 'stable distribution, alpha-stable, Levy stable, VaR, tail risk, heavy tails, cross-asset comparison'
+
+Author: 'Daniel Traian Pele'
+
+Submitted: 'Monday, 2 March 2026'

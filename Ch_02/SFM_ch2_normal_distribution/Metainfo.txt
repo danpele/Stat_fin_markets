@@ -1,0 +1,11 @@
+Name of QuantLet: 'SFM_ch2_normal_distribution'
+
+Published in: 'Statistics of Financial Markets (SFM)'
+
+Description: 'Normal distribution properties and normality tests. S&P 500 histogram with Normal overlay, QQ-plot, Jarque-Bera/Shapiro-Wilk/Anderson-Darling tests, CLT illustration with t(3) sums'
+
+Keywords: 'normal distribution, normality tests, QQ-plot, CLT, Jarque-Bera, Shapiro-Wilk, fat tails'
+
+Author: 'Daniel Traian Pele'
+
+Submitted: 'Monday, 2 March 2026'

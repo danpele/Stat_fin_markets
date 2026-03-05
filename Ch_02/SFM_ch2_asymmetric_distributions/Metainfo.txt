@@ -1,0 +1,11 @@
+Name of QuantLet: 'SFM_ch2_asymmetric_distributions'
+
+Published in: 'Statistics of Financial Markets (SFM)'
+
+Description: 'Asymmetric distributions for financial returns: Skewed Student-t (Hansen 1994), GED (generalized normal), MLE fitting, AIC/BIC model selection with S&P 500 data'
+
+Keywords: 'skewed Student-t, GED, generalized error distribution, asymmetric distributions, model selection, AIC, BIC'
+
+Author: 'Daniel Traian Pele'
+
+Submitted: 'Monday, 2 March 2026'
